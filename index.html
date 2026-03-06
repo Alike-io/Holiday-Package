@@ -577,118 +577,76 @@
 </div>
 
 <script>
+// ── BASE URL: Change this to your GitHub Pages repo URL ──
+const BASE_URL = "https://alike-io.github.io/holiday-packages/flyers/";
+
 const destinations = [
   {
     name: "Dubai",
     emoji: "🏙️",
     files: [
-      { name: "Dubai City Tour Package", type: "pdf", size: "2.4 MB", date: "Jan 2026" },
-      { name: "Desert Safari Experience", type: "pdf", size: "1.8 MB", date: "Jan 2026" },
-      { name: "Dubai Marina Luxury Cruise", type: "pdf", size: "3.1 MB", date: "Feb 2026" },
-      { name: "Burj Khalifa & Aquarium Combo", type: "pdf", size: "1.5 MB", date: "Feb 2026" },
-      { name: "Dubai Shopping Festival Special", type: "docx", size: "890 KB", date: "Dec 2025" }
-    ]
-  },
-  {
-    name: "Abu Dhabi",
-    emoji: "🕌",
-    files: [
-      { name: "Abu Dhabi Heritage Tour", type: "pdf", size: "2.1 MB", date: "Jan 2026" },
-      { name: "Yas Island Adventure Package", type: "pdf", size: "2.7 MB", date: "Feb 2026" },
-      { name: "Sheikh Zayed Mosque & Culture", type: "pdf", size: "1.9 MB", date: "Jan 2026" },
-      { name: "Saadiyat Island Beach Retreat", type: "docx", size: "1.2 MB", date: "Mar 2026" }
+      { name: "Dubai 3N4D - ₹25K", type: "pdf", file: "Dubai_3N4D_25k.pdf", desc: "3 Nights / 4 Days" },
+      { name: "Dubai 4N5D - ₹30K", type: "pdf", file: "Dubai_4N5D_30k.pdf", desc: "4 Nights / 5 Days" },
+      { name: "Dubai Ultimate Explorer with Ferrari World - ₹45K", type: "pdf", file: "Dubai_ultimate_explorer_with Ferrari world_45k.pdf", desc: "Ultimate Explorer Package" },
+      { name: "Dubai + Abu Dhabi Day Tour Explorer 5N6D - ₹36K", type: "pdf", file: "Dubai+Abu Dhabi Day tour_Explorer_5N6D_36k.pdf", desc: "5 Nights / 6 Days" },
+      { name: "Dubai + Abu Dhabi Explorer with Miracle & Global 5N6D - ₹38K", type: "pdf", file: "Dubai+Abu Dhabi Day tour_Explorer_Miracle & Global_5N6D_38k.pdf", desc: "5 Nights / 6 Days • Miracle Garden & Global Village" }
     ]
   },
   {
     name: "Singapore",
     emoji: "🦁",
     files: [
-      { name: "Singapore Family Fun Package", type: "pdf", size: "3.2 MB", date: "Feb 2026" },
-      { name: "Sentosa Island Explorer", type: "pdf", size: "2.0 MB", date: "Jan 2026" },
-      { name: "Gardens by the Bay & Marina Bay", type: "pdf", size: "1.7 MB", date: "Feb 2026" },
-      { name: "Singapore Food Trail Guide", type: "docx", size: "950 KB", date: "Jan 2026" }
+      { name: "Singapore Explorer 4N5D - ₹55K", type: "pdf", file: "Singapore_explorer_4N5D_55k.pdf", desc: "4 Nights / 5 Days" },
+      { name: "Singapore Explorer 6N7D - ₹75K", type: "pdf", file: "Singapore_explorer_6N7D_75k.pdf", desc: "6 Nights / 7 Days" }
     ]
   },
   {
     name: "Vietnam",
     emoji: "🏮",
     files: [
-      { name: "Vietnam North to South Package", type: "pdf", size: "3.8 MB", date: "Jan 2026" },
-      { name: "Ha Long Bay Cruise & Hanoi", type: "pdf", size: "2.5 MB", date: "Feb 2026" },
-      { name: "Ho Chi Minh City Explorer", type: "pdf", size: "1.6 MB", date: "Mar 2026" },
-      { name: "Hoi An & Da Nang Beach", type: "docx", size: "1.1 MB", date: "Feb 2026" }
+      { name: "Vietnam - Hanoi & Da Nang 4N - ₹30K/₹35K", type: "pdf", file: "Vietnam - Hanoi & Da Nang_4N_30k&35k.pdf", desc: "4 Nights • Hanoi + Da Nang" },
+      { name: "Vietnam - Hanoi & Phu Quoc 5N - ₹44K/₹49K", type: "pdf", file: "Vietnam - Hanoi & Phu Quoc_5N_44k&49k.pdf", desc: "5 Nights • Hanoi + Phu Quoc" },
+      { name: "Vietnam - Phu Quoc 4N5D - ₹25K", type: "pdf", file: "Vietnam - Phu Quoc_4N5D_25K.pdf", desc: "4 Nights / 5 Days • Beach Paradise" },
+      { name: "Vietnam - HCM, Da Nang, Hoi An, Hanoi & Ha Long Bay 6N7D - ₹40K/₹50K", type: "pdf", file: "Vietnam - HCM+DA Nang+HoiAn+Hanoi+Halong Bay_6N7D_40k&50k.pdf", desc: "6 Nights / 7 Days • Full Country Tour" },
+      { name: "Vietnam - Hanoi, Ha Long Bay Cruise & Da Nang 7N8D - ₹60K/₹66K", type: "pdf", file: "Vietnam - Hanoi, Halong Bay cruise and Da Nang_7N8D_60K&66K.pdf", desc: "7 Nights / 8 Days • Cruise Included" },
+      { name: "Vietnam Premium 7N8D", type: "pdf", file: "Vietnam_premium_7n8d.pdf", desc: "7 Nights / 8 Days • Premium Experience" }
     ]
   },
   {
     name: "Thailand",
     emoji: "🛕",
     files: [
-      { name: "Bangkok & Pattaya Combo", type: "pdf", size: "2.9 MB", date: "Jan 2026" },
-      { name: "Phuket Beach Holiday", type: "pdf", size: "2.2 MB", date: "Feb 2026" },
-      { name: "Chiang Mai Cultural Retreat", type: "pdf", size: "1.8 MB", date: "Jan 2026" },
-      { name: "Krabi & Phi Phi Island Hopping", type: "pdf", size: "2.4 MB", date: "Mar 2026" },
-      { name: "Thailand Honeymoon Special", type: "docx", size: "1.3 MB", date: "Feb 2026" }
+      { name: "Thailand - Pattaya & Bangkok 4N5D - ₹23K", type: "pdf", file: "Thailand_pattaya_bangkok_4n5d_23k.pdf", desc: "4 Nights / 5 Days" },
+      { name: "Thailand - Krabi & Phuket 4N5D - ₹24K", type: "pdf", file: "thailand_krabi_phuket_4n5d_24k.pdf", desc: "4 Nights / 5 Days" }
     ]
   },
   {
     name: "Bali",
     emoji: "🌺",
     files: [
-      { name: "Bali Honeymoon Paradise", type: "pdf", size: "3.5 MB", date: "Feb 2026" },
-      { name: "Ubud Cultural & Spa Retreat", type: "pdf", size: "2.0 MB", date: "Jan 2026" },
-      { name: "Bali Temple & Rice Terrace Tour", type: "pdf", size: "1.9 MB", date: "Mar 2026" },
-      { name: "Nusa Penida Day Trip", type: "docx", size: "980 KB", date: "Feb 2026" }
-    ]
-  },
-  {
-    name: "Malaysia",
-    emoji: "🏢",
-    files: [
-      { name: "Kuala Lumpur City Package", type: "pdf", size: "2.3 MB", date: "Jan 2026" },
-      { name: "Langkawi Island Escape", type: "pdf", size: "2.6 MB", date: "Feb 2026" },
-      { name: "Penang Food & Heritage Trail", type: "pdf", size: "1.5 MB", date: "Mar 2026" },
-      { name: "Malaysia Family Explorer", type: "docx", size: "1.4 MB", date: "Jan 2026" }
+      { name: "Bali 4N5D - ₹27K", type: "pdf", file: "Bali_4N5D_27k.pdf", desc: "4 Nights / 5 Days" },
+      { name: "Bali 6N7D with 2 Nights in Villa - ₹45K", type: "pdf", file: "Bali_6N7D_with 2 nights in villa_45k.pdf", desc: "6 Nights / 7 Days • Villa Stay Included" }
     ]
   },
   {
     name: "Andaman",
     emoji: "🏝️",
     files: [
-      { name: "Andaman Beach & Island Package", type: "pdf", size: "2.8 MB", date: "Feb 2026" },
-      { name: "Havelock Island Snorkeling", type: "pdf", size: "1.7 MB", date: "Jan 2026" },
-      { name: "Neil Island Serenity Retreat", type: "pdf", size: "1.4 MB", date: "Mar 2026" },
-      { name: "Port Blair Heritage Walk", type: "docx", size: "890 KB", date: "Feb 2026" }
+      { name: "Andaman 5N6D - ₹19K", type: "pdf", file: "Andaman_5n6d_19k.pdf", desc: "5 Nights / 6 Days" }
     ]
   },
   {
     name: "Bhutan",
     emoji: "🏔️",
     files: [
-      { name: "Bhutan Happiness Trail Package", type: "pdf", size: "2.1 MB", date: "Jan 2026" },
-      { name: "Tiger's Nest Monastery Trek", type: "pdf", size: "1.9 MB", date: "Feb 2026" },
-      { name: "Paro & Thimphu Cultural Tour", type: "pdf", size: "2.3 MB", date: "Mar 2026" },
-      { name: "Bhutan Festival Special", type: "docx", size: "1.1 MB", date: "Jan 2026" }
+      { name: "Bhutan 7N8D - ₹45K", type: "pdf", file: "Bhutan_7N8D_45k.pdf", desc: "7 Nights / 8 Days" }
     ]
   },
   {
-    name: "Japan",
-    emoji: "⛩️",
+    name: "Multi-Country",
+    emoji: "🌏",
     files: [
-      { name: "Tokyo & Kyoto Classic Package", type: "pdf", size: "3.6 MB", date: "Feb 2026" },
-      { name: "Cherry Blossom Season Special", type: "pdf", size: "2.8 MB", date: "Mar 2026" },
-      { name: "Mount Fuji & Hakone Day Trip", type: "pdf", size: "1.5 MB", date: "Jan 2026" },
-      { name: "Osaka Food & Culture Tour", type: "pdf", size: "2.0 MB", date: "Feb 2026" },
-      { name: "Japan Rail Pass Guide", type: "docx", size: "750 KB", date: "Jan 2026" }
-    ]
-  },
-  {
-    name: "Mauritius",
-    emoji: "🌴",
-    files: [
-      { name: "Mauritius Romantic Getaway", type: "pdf", size: "3.0 MB", date: "Feb 2026" },
-      { name: "Ile aux Cerfs Beach Package", type: "pdf", size: "2.2 MB", date: "Jan 2026" },
-      { name: "Chamarel & Black River Gorges", type: "pdf", size: "1.8 MB", date: "Mar 2026" },
-      { name: "Mauritius All-Inclusive Resort", type: "docx", size: "1.6 MB", date: "Feb 2026" }
+      { name: "Asian Extravaganza 10N11D - 4 Cities - ₹1.6L", type: "pdf", file: "Asian_Extravaganza_10N11D_4 cities_160k.pdf", desc: "10 Nights / 11 Days • 4 Cities" }
     ]
   }
 ];
@@ -730,7 +688,7 @@ function render() {
   } else {
     const dest = destinations.find(d => d.name === currentDest);
     const searchVal = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = dest.files.filter(f => f.name.toLowerCase().includes(searchVal));
+    const filtered = dest.files.filter(f => f.name.toLowerCase().includes(searchVal) || f.desc.toLowerCase().includes(searchVal));
 
     main.innerHTML = `
       <button class="back-btn" onclick="goBack()">
@@ -751,19 +709,18 @@ function render() {
       </div>
       <div class="files-grid">
         ${filtered.map(f => `
-          <div class="file-row">
+          <a class="file-row" href="${BASE_URL}${encodeURIComponent(f.file)}" target="_blank" download>
             <div class="file-icon ${f.type}">${f.type.toUpperCase()}</div>
             <div class="file-info">
               <div class="file-name">${f.name}</div>
               <div class="file-meta">
-                <span>${f.size}</span>
-                <span>${f.date}</span>
+                <span>${f.desc}</span>
               </div>
             </div>
-            <button class="download-btn" title="Download">
+            <button class="download-btn" title="Download" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </button>
-          </div>
+          </a>
         `).join('')}
       </div>
     `;
